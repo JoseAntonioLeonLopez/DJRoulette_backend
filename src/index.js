@@ -1,13 +1,13 @@
-const express = require('express')
+const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
-const songRoutes = require("./Routes/Song");
+const songRoutes = require('./routes/Song');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-//Middleware
-app.use(express.json());
+// Middleware
+app.use(express.json()); // Para parsear JSON
 app.use(`/${process.env.NAME_APPLICATION}`, songRoutes);
 
 // MongoDB

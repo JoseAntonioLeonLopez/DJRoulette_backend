@@ -1,18 +1,20 @@
-const mongoose = require("mongoose");
+// models/Song.js
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const songSchema = mongoose.Schema({
-    title: {
-        type: String,
-        required: true
-    },
-    artist: {
-        type: String,
-        required: true
-    },
-    image: {
-        type: String,
-        required: false
-    }
+const songSchema = new Schema({
+  title: {
+    type: String,
+    required: true
+  },
+  artist: {
+    type: String,
+    required: true
+  },
+  image: {
+    type: String
+  }
 });
 
-module.exports = mongoose.model('Song', songSchema);
+const Song = mongoose.model('Song', songSchema);
+module.exports = Song;
