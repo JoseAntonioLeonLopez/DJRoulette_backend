@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+var cors = require('cors')
 require('dotenv').config();
 const songRoutes = require('./src/Routes/Song.route');
 
@@ -9,6 +10,7 @@ const port = process.env.PORT || 3000;
 // Middleware
 app.use(express.json()); // Para parsear JSON
 app.use(`/${process.env.NAME_APPLICATION}`, songRoutes);
+app.use(cors())
 
 // MongoDB
 mongoose.connect(process.env.MONGODB_URI)
